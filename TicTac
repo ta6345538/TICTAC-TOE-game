@@ -1,0 +1,90 @@
+# TICTAC-TOE-game
+
+#HTML_Part
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>TIC TAK TOE</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+
+       <h1>Welcome to TIC TAC TOE</h1>
+       <p>Get ready to play!</p>
+       <button id="b"type="button" class="btn btn-primary btn-lg" name="button">Restart</button>
+
+      </div>
+    <table align="center">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
+
+#CSS_Part
+
+td{
+  height: 50px;
+  width: 50px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 30px;
+
+}
+
+#JS_Part
+
+var restart = document.querySelector('#b');
+
+var sqr = document.querySelectorAll('td');
+
+function clearBoard(){
+
+  for (var i=0; i < sqr.length; i++){
+    sqr[i].textContent = "";
+  }
+}
+
+restart.addEventListener('click',clearBoard);
+
+function changeMark(){
+  if (this.textContent === "") {
+
+    this.textContent = "X";
+
+  }else if (this.textContent === "X") {
+
+    this.textContent = "O";
+
+  }else {
+    this.textContent = "";
+  }
+}
+
+for (var i = 0; i < sqr.length; i++) {
+  sqr[i].addEventListener("click",changeMark)
+}
+
